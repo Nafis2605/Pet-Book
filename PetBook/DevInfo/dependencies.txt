@@ -14,3 +14,7 @@
 
 #Elements
     npm install react-native-elements
+
+#Tab Navigator
+
+    npm install @react-navigation/material-bottom-tabs react-native-paper
