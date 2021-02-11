@@ -1,0 +1,16 @@
+#To install expo
+
+    npm install -g expo-cli
+
+#Open Windows PowerShell > Go To Project Directory > Before First Run only
+
+    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Unrestricted
+
+#Navigation
+
+    npm install @react-navigation/native @react-navigation/stack
+
+    expo install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+#Elements
+    npm install react-native-elements
