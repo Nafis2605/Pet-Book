@@ -1,12 +1,18 @@
-import React from "react";
+import React,{useState} from "react";
 import { View, StyleSheet } from "react-native";
 import { Input, Button, Card } from "react-native-elements"
+import * as firebase from "firebase"
 
 import { Entypo, FontAwesome5, MaterialCommunityIcons, Octicons } from '@expo/vector-icons';
 
 import {AuthContext} from "../../providers/AuthProvider"
 
 const SignInScreen = (props) => {
+    const [Name,setName]= useState("")
+    const [Email, setEmail] = useState("")
+    const [ContactNo, setContactNo] =useState("")
+    const [Password, setPassword] = useState("");
+    const [ConfirmPassword, setConfirmPassword] = useState("");
     return (
         <AuthContext.Consumer>
             {(auth)=>(
@@ -29,7 +35,14 @@ const SignInScreen = (props) => {
                         type='solid'
                         buttonStyle={styles.solidButtonStyle}
                         onPress={function () {
-                            auth.setIsLoggedIn(true)
+                            firebase.auth().signInWithEmailAndPassword(Email,Password)
+                            .then((userCredential) => {
+                                auth.setIsLoggedIn(true);
+                                auth.setCurrentUser(userCredential.user)
+                            })
+                            .catch((error) => {
+                                alert(error)
+                            });
                             console.log("Sign In Button is clicked!")
                         }}
                     />

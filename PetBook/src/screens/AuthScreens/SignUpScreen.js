@@ -1,10 +1,17 @@
-import React from "react";
+import React,{useState} from "react";
 import { View, StyleSheet } from "react-native";
 import { Input, Button, Card } from "react-native-elements"
 import { Entypo, FontAwesome5, Octicons, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
-
+import * as firebase from "firebase"
 
 const SignUpScreen = (props) => {
+    const [Name,setName]= useState("")
+    const [Email, setEmail] = useState("")
+    const [ContactNo, setContactNo] =useState("")
+    const [Password, setPassword] = useState("");
+    const [ConfirmPassword, setConfirmPassword] = useState("");
+
+
     return (
         <View style={styles.viewStyle}>
             <Card containerStyle={styles.cardStyle}><Card.Title style={styles.textStyle}> Free Sign Up in PetBook</Card.Title>
@@ -37,6 +44,41 @@ const SignUpScreen = (props) => {
                     type='solid'
                     buttonStyle={styles.solidButtonStyle}
                     onPress={function () {
+                        if(!(Name && Email && ContactNo && Password && ConfirmPassword)){
+                            alert("Please fill all the fields")
+                        }
+                        else if(Password === ConfirmPassword){
+                            alert ("Passwords does not match")
+                        }
+                        else {
+                            firebase.auth().createUserWithEmailAndPassword(Email,Password)
+                            .then((userCredential) => {
+                                userCredential.user.updateProfile({displayName: Name})
+                                firebase
+                                .database()
+                                .ref()
+                                .child("users/")
+                                .child(userCredential.user.uid)
+                                .set(
+                                    {
+                                        Name: Name,
+                                        Email:Email,
+                                        ContactNo:ContactNo
+                                    }
+                                ).then(()=>{
+                                    alert("You have successfully created an account.")
+                                    console.log(userCredential.user)
+                                    props.navigation.navigate("Sign In")
+                                })
+                                .catch((error)=>{
+                                    alert(error)
+                                }
+                                )
+                              })
+                              .catch((error) => {
+                                  alert(error)
+                              });
+                        }
                         console.log("Sign Up Button is clicked!")
                     }}
                 />

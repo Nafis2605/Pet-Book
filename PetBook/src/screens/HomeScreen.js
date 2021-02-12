@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import {Button} from "react-native-elements"
+import * as firebase from "firebase"
 
 import {AuthContext} from "../providers/AuthProvider"
 
@@ -15,7 +16,12 @@ const HomeScreen = (props) => {
                     type="solid"
                     onPress={function () {
                         console.log("Log Out Button is clicked!")
-                        auth.setIsLoggedIn(false)   
+                        firebase.auth().signOut().then(() => {
+                            auth.setIsLoggedIn(false)
+                            auth.setCurrentUser({})
+                          }).catch((error) => {
+                            alert(error)
+                          });
                     }}
                 />
                 </View>
