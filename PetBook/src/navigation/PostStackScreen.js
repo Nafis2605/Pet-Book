@@ -10,9 +10,9 @@ const PostStack = createStackNavigator();
 const PostStackScreen = () => {
     return (
         <PostStack.Navigator initialRouteName="Home">
-            <PostStack.Screen name="Home" component={HomeScreen} />
-            <PostStack.Screen name="Post Details" component={PostDetailsScreen} />
-            <PostStack.Screen name="User Profile" component={UserProfileScreen} />
+            <PostStack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }}/>
+            <PostStack.Screen name="Post Details" component={PostDetailsScreen} options={{ headerShown: false }}/>
+            <PostStack.Screen name="User Profile" component={UserProfileScreen} options={{ headerShown: false }}/>
         </PostStack.Navigator>
     )
 }

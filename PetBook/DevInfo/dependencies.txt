@@ -18,3 +18,9 @@
 #Tab Navigator
 
     npm install @react-navigation/material-bottom-tabs react-native-paper
+
+#Firebase
+    expo upgrade
+    npm install --save firebase@latest
+    npm install --save @firebase/app
+    npm install --save @firebase/firestore
