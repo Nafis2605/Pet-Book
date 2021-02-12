@@ -22,3 +22,5 @@
 #Firebase
     expo upgrade
     npm install --save firebase@latest
+    npm install --save @firebase/app
+    npm install --save @firebase/firestore

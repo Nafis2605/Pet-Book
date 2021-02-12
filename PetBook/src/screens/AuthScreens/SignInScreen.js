@@ -2,17 +2,15 @@ import React,{useState} from "react";
 import { View, StyleSheet } from "react-native";
 import { Input, Button, Card } from "react-native-elements"
 import * as firebase from "firebase"
+import "firebase/firestore";
 
 import { Entypo, FontAwesome5, MaterialCommunityIcons, Octicons } from '@expo/vector-icons';
 
 import {AuthContext} from "../../providers/AuthProvider"
 
 const SignInScreen = (props) => {
-    const [Name,setName]= useState("")
     const [Email, setEmail] = useState("")
-    const [ContactNo, setContactNo] =useState("")
     const [Password, setPassword] = useState("");
-    const [ConfirmPassword, setConfirmPassword] = useState("");
     return (
         <AuthContext.Consumer>
             {(auth)=>(
@@ -21,13 +19,20 @@ const SignInScreen = (props) => {
                     <Card.Title style={styles.textStyle}> Welcome to PetBook</Card.Title>
                     <Card.Divider />
                     <Input
-                        placeholder=" Email Address"
+                        placeholder="Email Address"
                         leftIcon={<Entypo name="mail-with-circle" size={24} color="black" />}
+                        onChangeText={function (currentInput) {
+                            setEmail(currentInput);
+                          }}
                     />
 
                     <Input
-                        placeholder=' Password'
+                        placeholder='Password'
                         leftIcon={<FontAwesome5 name="lock" size={24} color="black" />}
+                        secureTextEntry={true}
+                        onChangeText={function (currentInput) {
+                            setPassword(currentInput);
+                          }}
                     />
                     <Button
                         title=' Sign In!'
