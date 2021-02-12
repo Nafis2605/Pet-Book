@@ -10,8 +10,8 @@ const ProfileStack = createStackNavigator();
 const ProfileStackScreen = () => {
     return (
         <ProfileStack.Navigator initialRouteName="My Profile">
-            <ProfileStack.Screen name="My Profile" component={MyProfileScreen} />
-            <ProfileStack.Screen name="Edit Profile" component={EditProfileScreen} />
+            <ProfileStack.Screen name="My Profile" component={MyProfileScreen} options={{ headerShown: false }} />
+            <ProfileStack.Screen name="Edit Profile" component={EditProfileScreen} options={{ headerShown: false }} />
         </ProfileStack.Navigator>
     )
 }

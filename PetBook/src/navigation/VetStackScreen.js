@@ -9,8 +9,8 @@ const VetStack = createStackNavigator();
 const VetStackScreen = () => {
     return (
         <VetStack.Navigator initialRouteName="Vet List">
-            <VetStack.Screen name="Vet List" component={VetListScreen} />
-            <VetStack.Screen name="Vet Details" component={VetDetailsScreen} />
+            <VetStack.Screen name="Vet List" component={VetListScreen} options={{ headerShown: false }}/>
+            <VetStack.Screen name="Vet Details" component={VetDetailsScreen} options={{ headerShown: false }}/>
         </VetStack.Navigator>
     )
 }

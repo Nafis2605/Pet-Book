@@ -5,26 +5,15 @@ import * as firebase from "firebase"
 import "firebase/firestore"
 
 import {AuthContext} from "../providers/AuthProvider"
+import AppHeader from "../components/AppHeader"
 
 const HomeScreen = (props) => {
     return (
         <AuthContext.Consumer>
             {(auth)=>(
                 <View>
+                    <AppHeader/>
                     <Text style={styles.textStyle}> Welcome to Home Screen</Text>
-                    <Button
-                    title="Log Out"
-                    type="solid"
-                    onPress={function () {
-                        console.log("Log Out Button is clicked!")
-                        firebase.auth().signOut().then(() => {
-                            auth.setIsLoggedIn(false)
-                            auth.setCurrentUser({})
-                          }).catch((error) => {
-                            alert(error)
-                          });
-                    }}
-                />
                 </View>
             )}
         </AuthContext.Consumer>
