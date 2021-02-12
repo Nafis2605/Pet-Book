@@ -46,7 +46,7 @@ const SignInScreen = (props) => {
                                 auth.setCurrentUser(userCredential.user)
                             })
                             .catch((error) => {
-                                alert(error)
+                                alert(error.message)
                             });
                             console.log("Sign In Button is clicked!")
                         }}

@@ -60,7 +60,13 @@ const SignUpScreen = (props) => {
                     type='solid'
                     buttonStyle={styles.solidButtonStyle}
                     onPress={function () {
-                        
+                        if(!(Name && Email && ContactNo && Password && ConfirmPassword)){
+                            alert("Please fill up all the fields")
+                        }
+                        else if (Password !== ConfirmPassword){
+                            alert("Passwords does not match")
+                        }
+                        else{
                             firebase.auth().createUserWithEmailAndPassword(Email,Password)
                             .then((userCredential) => {
                                 userCredential.user.updateProfile({displayName: Name})
@@ -86,7 +92,7 @@ const SignUpScreen = (props) => {
                               .catch((error) => {
                                   alert(error.message)
                               });
-                        
+                            }
                         console.log("Sign Up Button is clicked!")
                     }}
                 />
