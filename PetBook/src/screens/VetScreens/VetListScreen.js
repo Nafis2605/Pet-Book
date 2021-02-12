@@ -1,10 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-
+import VetCard from "../components/vetCard";
 const VetListScreen = (props) => {
     return (
         <View>
-            <Text style={styles.textStyle}> Welcome to Vet List Screen</Text>
+            <VetCard> title = "Dr ABC "</VetCard>
+            <VetCard> title = "Dr 123 "</VetCard>
+            <VetCard> title = "Dr qwe "</VetCard>
         </View>
     )
 }
