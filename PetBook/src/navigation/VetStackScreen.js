@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack"
 
 import VetListScreen from "../screens/VetScreens/VetListScreen"
-import VetDetailsScreen from "../screens/VetScreens/VetDetaisScreen"
+import VetDetailsScreen from "../screens/VetScreens/VetDetailsScreen"
 
 const VetStack = createStackNavigator();
 

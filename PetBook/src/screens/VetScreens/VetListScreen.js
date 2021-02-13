@@ -1,15 +1,15 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import VetCard from "../components/vetCard";
+import VetCard from "./../../components/VetCard"; 
+
 const VetListScreen = (props) => {
     return (
         <View>
-            <VetCard> title = "Dr ABC "</VetCard>
-            <VetCard> title = "Dr 123 "</VetCard>
-            <VetCard> title = "Dr qwe "</VetCard>
+            <text>Vet list will go here </text>
+            
         </View>
-    )
-}
+    );
+}  
 
 const styles = StyleSheet.create(
     {
@@ -20,5 +20,4 @@ const styles = StyleSheet.create(
         }
     }
 )
-
 export default VetListScreen;
