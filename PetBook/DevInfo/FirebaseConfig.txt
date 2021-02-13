@@ -1,0 +1,13 @@
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCUPX74KT7JpcHwZ9ZPy2LnjtCxlOMHM7E",
+    authDomain: "pet-book-99eac.firebaseapp.com",
+    projectId: "pet-book-99eac",
+    storageBucket: "pet-book-99eac.appspot.com",
+    messagingSenderId: "826660869461",
+    appId: "1:826660869461:web:503db648f6948cb4314bdc"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>

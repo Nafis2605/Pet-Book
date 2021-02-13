@@ -1,13 +1,12 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import VetCard from "./../../components/VetCard"; 
+import AppHeader from "../../components/AppHeader";
 
 const VetListScreen = (props) => {
     return (
         <View>
-            < VetCard title ="DR Meow   Address :Dhanmondi,   Number: 0123456789"/>
-            < VetCard title ="DR Woof   Address :Board Bazar, Number: 0123456789"/>
-            < VetCard title ="DR Rawr   Address :Cox Bazar,   Number: 0123456789"/>
+            <AppHeader/>
+            <Text style={styles.textStyle}> Welcome to Vet List Screen</Text>
         </View>
     );
 } ; 
