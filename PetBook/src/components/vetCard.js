@@ -1,16 +1,29 @@
 import React from "react";
-import { View } from "react-native";
-import { Card, Button, Text, Avatar } from "react-native-elements";
-import { AntDesign } from "@expo/vector-icons";
+import { View , StyleSheet } from "react-native";
+import { Card, Text} from "react-native-elements";
+//import { AntDesign } from "@expo/vector-icons";
 
-const VetCard = () => {
-  return 
-  (
-        <View> 
-             <Text style={{ fontStyle: "italic" }}> {props.title}</Text>
+const VetCard = (props) => {
+  console.log(props);
+  return (
+        <Card>
+           <View>
+           <Text>{props.title} </Text>
+           </View>
+         
+        </Card>
              
-        </View>
-  );
+  )
 };
+
+const styles = StyleSheet.create(
+  {
+      textStyle:
+      {
+          fontSize: 20,
+          margin: 10,
+          color: "blue",
+      },
+  } );
 
 export default VetCard;
