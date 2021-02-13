@@ -6,14 +6,15 @@ import "firebase/firestore"
 
 import {AuthContext} from "../providers/AuthProvider"
 import AppHeader from "../components/AppHeader"
+import CreatePostCard from "../components/CreatePostCard"
 
 const HomeScreen = (props) => {
     return (
         <AuthContext.Consumer>
             {(auth)=>(
-                <View>
+                <View style={styles.viewStyle}>
                     <AppHeader/>
-                    <Text style={styles.textStyle}> Welcome to Home Screen</Text>
+                    <CreatePostCard/>
                 </View>
             )}
         </AuthContext.Consumer>
@@ -26,7 +27,13 @@ const styles = StyleSheet.create(
         {
             fontSize: 20,
             margin: 10
+        },
+        viewStyle:
+        {
+            backgroundColor: "#fff7e6",
+            flex:1
         }
+
     }
 )
 
