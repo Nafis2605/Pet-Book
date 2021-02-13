@@ -4,11 +4,8 @@ import { Card, Button, Text, Avatar } from "react-native-elements";
 import { AntDesign } from "@expo/vector-icons";
 
 const profileCard = (props) => {
-  return 
-  (
-
-
-        <Card>  
+  return (
+    <Card>  
         <View
         style={{
           flexDirection: "row",
@@ -22,7 +19,7 @@ const profileCard = (props) => {
             uri:
               'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
           }}
-          icon={{ name: "user", type: "font-awesome", color: "black" }}
+          icon={{ name: props.title, type: "font-awesome", color: "black" }}
           activeOpacity={1}
         />
 
