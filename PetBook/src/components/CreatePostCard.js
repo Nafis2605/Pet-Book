@@ -4,6 +4,7 @@ import { Card, Button, Text, Avatar, Input } from "react-native-elements";
 import { FontAwesome, AntDesign, FontAwesome5 } from '@expo/vector-icons';
 import firebase from "firebase"
 import "firebase/firestore";
+import ChoosePhotoComponent from "./ChoosePhotoComponent";
 
 import { AuthContext } from "../providers/AuthProvider";
 
@@ -30,6 +31,7 @@ const CreatePostCard=()=>{
                         buttonStyle={styles.clearButtonStyle}
                         type="outline"
                         onPress={function () {
+                            <ChoosePhotoComponent userID={auth.currentUser.uid} />
                             console.log("Upload Picture Button is clicked!")
                         }}
                     />
