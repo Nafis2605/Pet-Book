@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
-import * as firebase from "firebase";
+import firebase from "firebase";
+import "@firebase/firestore"
 
 import AuthStackScreen from "./src/navigation/AuthStackScreen";
 import HomeTabScreen from "./src/navigation/HomeTabScreen";
