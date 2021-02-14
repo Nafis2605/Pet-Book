@@ -26,6 +26,7 @@
     npm install --save @firebase/firestore
     npm install firestore --save
 
+
     #if the all above doesn't work
     npm install --save firebase@latest
 
@@ -34,3 +35,4 @@
 
 #Image Picker
     npm install expo-image-picker
+

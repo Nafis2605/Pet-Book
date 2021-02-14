@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { Card, Button, Text, Avatar } from "react-native-elements";
+
 import { AntDesign,FontAwesome5, Entypo } from "@expo/vector-icons";
 
 const ProfileCard = (props) => {
@@ -8,10 +9,16 @@ const ProfileCard = (props) => {
     
     <Card containerStyle={styles.cardStyle}>
       <View style={{ alignItems: "center"}}>
+
         <Avatar
           containerStyle={{ backgroundColor: "#ff6e40" }}
           rounded
+          source={{
+            uri:
+              'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+          }}
           icon={{ name: "user", type: "font-awesome", color: "#FFF5DE" }}
+
           activeOpacity={1}
         />
         <Text h3Style={{ padding: 10 }} h3>
