@@ -51,7 +51,7 @@ const HomeScreen = (props) => {
                         <ActivityIndicator size="large" color="#ff6e40" animating={loading} />
                         <FlatList
                             data={posts}
-                            renderItem={({ item }) => {
+                            renderItem={({item}) => {
                             return (
                                 <PostCard
                                     author={item.data.author}
@@ -80,7 +80,6 @@ const styles = StyleSheet.create(
             backgroundColor: "#fff7e6",
             flex:1
         }
-
     }
 )
 
