@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from "react-native";
-import VetCard from "./../../components/VetCard";
+import VetCard from "../../components/VetCard";
 import AppHeader from "../../components/AppHeader" 
 import VetDetailsCard from "../../components/VetDetailsCard"
 const VetListScreen = (props) => {
