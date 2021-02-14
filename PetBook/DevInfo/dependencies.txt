@@ -32,5 +32,6 @@
 #Moment
     npm install moment
 
-#Image Picker
     npm install expo-image-picker
+
+

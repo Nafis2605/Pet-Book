@@ -6,8 +6,9 @@ import "firebase/firestore"
 import {AuthContext} from "../../providers/AuthProvider"
 import ProfileCard from "../../components/ProfileCard"
 import AppHeader from "../../components/AppHeader"
-
+import profileCard from "./../../components/profileCard";
 const MyProfileScreen = (props) => {
+
     const [profile, setProfile] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -25,6 +26,7 @@ const MyProfileScreen = (props) => {
             )
             }
         </AuthContext.Consumer>
+
     )
 }
 const styles = StyleSheet.create(

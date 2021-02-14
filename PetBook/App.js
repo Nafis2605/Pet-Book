@@ -1,10 +1,11 @@
 import React from 'react';
-import { NavigationContainer } from "@react-navigation/native"
-import firebase from "firebase"
+import { NavigationContainer } from "@react-navigation/native";
+import firebase from "firebase";
+import "@firebase/firestore"
 
-import AuthStackScreen from "./src/navigation/AuthStackScreen"
-import HomeTabScreen from "./src/navigation/HomeTabScreen"
-import {AuthContext, AuthProvider} from "./src/providers/AuthProvider"
+import AuthStackScreen from "./src/navigation/AuthStackScreen";
+import HomeTabScreen from "./src/navigation/HomeTabScreen";
+import {AuthContext, AuthProvider} from "./src/providers/AuthProvider";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCUPX74KT7JpcHwZ9ZPy2LnjtCxlOMHM7E",
