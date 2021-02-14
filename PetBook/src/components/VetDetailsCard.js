@@ -4,20 +4,18 @@ import { Card, Button, Text, Avatar } from "react-native-elements";
 import { AntDesign,MaterialIcons } from "@expo/vector-icons";
 
 
-const VetCard = (props) => {
+const VetDetailsCard = (props) => {
   return (
     <Card containerStyle={styles.cardStyle}>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-        }}
-      >
+      <View>
         <Avatar
           containerStyle={{ backgroundColor: "#ffab91" }}
           rounded
           icon={{ name: "user", type: "font-awesome", color: "black" }}
           activeOpacity={1}
+          style={{
+            alignItems: "center",
+          }}
         />
         <Text h4Style={{ padding: 10 }} h4>
           {props.name}
@@ -34,7 +32,7 @@ const VetCard = (props) => {
   );
 };
 
-export default VetCard;
+export default VetDetailsCard;
 
 const styles = StyleSheet.create(
   {
