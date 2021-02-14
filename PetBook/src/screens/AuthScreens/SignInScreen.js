@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 import { Input, Button, Card } from "react-native-elements"
 import firebase from "firebase"
 import "firebase/firestore";
-
+import "firebase/auth";
 
 import { Entypo, FontAwesome5, MaterialCommunityIcons, Octicons } from '@expo/vector-icons';
 
