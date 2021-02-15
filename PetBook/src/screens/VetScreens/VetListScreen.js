@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, TextInput} from "react-native";
+import { View, Text, StyleSheet, FlatList, TouchableOpacity} from "react-native";
+import { Searchbar } from 'react-native-paper';
 import VetCard from "../../components/VetCard";
 import AppHeader from "../../components/AppHeader" 
 import VetDetailsCard from "../../components/VetDetailsCard"
@@ -7,15 +8,17 @@ import VetList from "../../API/VetList";
 
 
 const VetListScreen = (props) => {
-    const [value, onChangeText] = React.useState('   Search for Vets here....');
+   
+    const [searchQuery, setSearchQuery] = React.useState('');
+    const onChangeSearch = query => setSearchQuery(query);
     return (
         <View style={styles.viewStyle}>
         <AppHeader/>
        
-        <TextInput
-            style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-            onChangeText={text => onChangeText(text)}
-            value={value}
+        <Searchbar
+            placeholder="Search for Vets"
+            onChangeText={onChangeSearch}
+            value={searchQuery}
         />
             <FlatList
                 data={VetList}
