@@ -4,6 +4,7 @@ import { Input, Button, Card } from "react-native-elements"
 import { Entypo, FontAwesome5, Octicons, Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import firebase from "firebase"
 import "firebase/firestore";
+import "firebase/auth";
 
 const SignUpScreen = (props) => {
     const [Name,setName]= useState("")
