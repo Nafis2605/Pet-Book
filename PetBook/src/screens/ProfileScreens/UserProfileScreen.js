@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import AppHeader from "../../components/AppHeader"
-import PostCard from "./../../components/PostCard"; 
 const UserProfileScreen = (props) => {
     return (
         <View>
