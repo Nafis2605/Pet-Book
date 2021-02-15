@@ -1,18 +1,24 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, SearchBar} from "react-native";
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, TextInput} from "react-native";
 import VetCard from "../../components/VetCard";
 import AppHeader from "../../components/AppHeader" 
 import VetDetailsCard from "../../components/VetDetailsCard"
-import getVets from "./../../API/getVets";
-import VetAPI from "./../../API/VetAPI";
+import VetList from "../../API/VetList";
+
+
 const VetListScreen = (props) => {
-   
+    const [value, onChangeText] = React.useState('   Search for Vets here....');
     return (
         <View style={styles.viewStyle}>
-            <AppHeader/>
-
+        <AppHeader/>
+       
+        <TextInput
+            style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+            onChangeText={text => onChangeText(text)}
+            value={value}
+        />
             <FlatList
-                data={VetAPI}
+                data={VetList}
                     renderItem={({ item }) => {
                         return (
                             <TouchableOpacity

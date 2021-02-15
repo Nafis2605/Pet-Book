@@ -1,38 +1,25 @@
-export default  [
-    {
-      id: "V1",
-      name:"Dr Mehedy Hasan",
-      specialization:"Cat Specialist",
-      address: "Wari, Dhaka"
-    },
-    {
-        id: "V2",
-        name:"Dr Mohammad Mithun",
-        specialization:"Dog Specialist",
-        address: "Mirpur, Dhaka"
-    },
-    {
-      id: "V3",
-      name:"Dr Nazmul Hasan Shanto",
-      specialization:"Cow Specialist",
-      address: "Amtoli, Rajshahi"
-    },
-    {
-        id: "V4",
-        name:"Dr Mominul Haque",
-        specialization:"Fish Specialist",
-        address: "Himchori, Cox's Bazar"
-    },
-    {
-        id: "V5",
-        name:"Dr Tamim Iqbal",
-        specialization:"Goat Specialist",
-        address: "Bahadarhat, Chittagong"
-    },
-    {
-        id: "V6",
-        name:"Dr Sakib Al Hasan",
-        specialization:"Tiger Specialist",
-        address: "Sundarban, Khulna"
-    },
-  ];
+import VetList from "./VetList";
+
+const contains = ({ name, specialization, address }, query) => {
+    if (name.includes(query)|| specialization.includes(query) || address.includes(query)) {
+      return true;
+    }
+  
+    return false;
+  };
+
+  export const getVets = (limit = 20, query = "") => {
+    return new Promise((resolve, reject) => {
+      if (query.length === 0) {
+        resolve(_.take(VetList, limit));
+      } else {
+        const formattedQuery = query.toLowerCase();
+        const results = _.filter(Vets, Vet => {
+          return contains(Vet, formattedQuery);
+        });
+        resolve(_.take(results, limit));
+      }
+    });
+  };
+  
+  export default getVets;
