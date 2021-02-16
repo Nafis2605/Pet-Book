@@ -1,12 +1,11 @@
 import React, {useEffect,useState}  from "react";
 import { View, Text, StyleSheet } from "react-native";
-import firebase from "firebase"
+import firebase from "firebase";
 import "firebase/firestore"
 
 import {AuthContext} from "../../providers/AuthProvider"
 import ProfileCard from "../../components/ProfileCard"
 import AppHeader from "../../components/AppHeader"
-import profileCard from "./../../components/profileCard";
 const MyProfileScreen = (props) => {
 
     const [profile, setProfile] = useState([]);

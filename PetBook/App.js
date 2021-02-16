@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import firebase from "firebase";
-import "@firebase/firestore"
+import "firebase/firestore" ;
 
 import AuthStackScreen from "./src/navigation/AuthStackScreen";
 import HomeTabScreen from "./src/navigation/HomeTabScreen";
@@ -33,4 +33,4 @@ function App() {
   )
 }
 
-export default App;
+export default App; 

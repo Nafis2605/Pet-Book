@@ -36,3 +36,5 @@
 #Image Picker
     npm install expo-image-picker
 
+#searchable list  ONLY IF DUMMY2 IS USED
+npm i react-native-searchable-list --save
