@@ -3,6 +3,7 @@ import { View, Text, FlatList, Button,SafeAreaView, TouchableOpacity } from "rea
 import { ListItem, SearchBar } from "react-native-elements";
 import VetCard from "../../components/VetCard";
 import VetList from "../../API/VetList.json";
+import AppHeader from "../../components/AppHeader"
  
 class VetListScreen extends Component {
  
@@ -45,10 +46,11 @@ class VetListScreen extends Component {
   }
  
   renderHeader = () => {
-      return <SearchBar placeholder="Search Here..."
+      return (
+      <SearchBar placeholder="Search Here..."
           lightTheme round editable={true}
           value={this.state.search}
-          onChangeText={this.updateSearch} />; 
+          onChangeText={this.updateSearch} />); 
   }; 
  
   updateSearch = search => {
@@ -79,13 +81,12 @@ class VetListScreen extends Component {
             }
           } title="Reload Page" />
         </SafeAreaView> :
-
+        
         <FlatList
             ListHeaderComponent={this.renderHeader}
             data={this.state.data}
             keyExtractor={item => item.specialization}
             renderItem={({ item }) => (
-
               <VetCard
               name={item.name}
               specialization = {item.specialization}

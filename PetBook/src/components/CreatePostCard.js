@@ -25,18 +25,6 @@ const CreatePostCard=()=>{
                     />
 
                     <Button
-                        title=" Upload Picture"
-                        icon={<FontAwesome5 name="image" size={24} color="#ff6e40" />}
-                        titleStyle={{color:"#ff6e40"}}
-                        buttonStyle={styles.clearButtonStyle}
-                        type="outline"
-                        onPress={function () {
-                            <ChoosePhotoComponent userID={auth.currentUser.uid} />
-                            console.log("Upload Picture Button is clicked!")
-                        }}
-                    />
-                    <Card.Divider/>
-                    <Button
                     title=" Share Your Post"
                     type="solid"
                     icon={<AntDesign name="sharealt" size={24} color="#FFF5DE" />}
@@ -57,6 +45,7 @@ const CreatePostCard=()=>{
                         .then(() => {
                             //setLoading(false);
                             alert("Post created Successfully!");
+                            setInput("")
                             console.log("Post Share button is clicked")
                         })
                         .catch((error) => {
