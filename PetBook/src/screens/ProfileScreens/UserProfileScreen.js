@@ -2,16 +2,13 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import AppHeader from "../../components/AppHeader"
 import profileCard from "./../../components/profileCard"; 
-import PostCard from "./../../components/PostCard"; 
+import PostCard from "./../../components/Post"; 
 const UserProfileScreen = (props) => {
     return (
         <View>
             <AppHeader/>
             <Text style={styles.textStyle}> Welcome to User Profile Screen</Text>
-            <profileCard title = "Mr X"/>
-            <PostCard />
-            <PostCard />
-            <PostCard />
+            
         </View>
     )
 }

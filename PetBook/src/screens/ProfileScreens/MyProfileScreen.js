@@ -4,9 +4,9 @@ import firebase from "firebase"
 import "firebase/firestore"
 
 import {AuthContext} from "../../providers/AuthProvider"
-import ProfileCard from "../../components/ProfileCard"
+import ProfileCard from "../../components/profileCard"
 import AppHeader from "../../components/AppHeader"
-import profileCard from "./../../components/profileCard";
+
 const MyProfileScreen = (props) => {
 
     const [profile, setProfile] = useState([]);
@@ -15,14 +15,17 @@ const MyProfileScreen = (props) => {
     return(
         <AuthContext.Consumer>
             {(auth)=>(
-
                 <View style={styles.viewStyle}>
                     <AppHeader/>
                 <View style={{justifyContent:"center", flex:1}}>
-                    <ProfileCard/>
+                    
+                    <ProfileCard
+                    name = {auth.currentUser.name}
+                    mail ={auth.currentUser.Email}
+                    contactNo={auth.currentUser.ContactNo}
+                    />
                 </View>
                 </View>
-            
             )
             }
         </AuthContext.Consumer>

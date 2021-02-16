@@ -22,17 +22,17 @@ const ProfileCard = (props) => {
           activeOpacity={1}
         />
         <Text h3Style={{ padding: 10 }} h3>
-          Fahim Arsad Nafis
+          {props.name}
         </Text>
       </View>
       <Text h4style={{padding:20}} h4>
       {<Entypo name="location" size={24} color="#ff6e40" />}  Put the address here
       </Text>
       <Text h4style={{padding: 20}} h4>
-      {<Entypo name="mobile" size={24} color="black" color="#ff6e40" />}  Put the Contact No here
+      {<Entypo name="mobile" size={24} color="black" color="#ff6e40" />}  {props.contactNo}
       </Text>
       <Text h4style={{padding: 20}} h4>
-      {<Entypo name="mail-with-circle" size={24} color="#ff6e40" />}  Put the Mail Address here
+      {<Entypo name="mail-with-circle" size={24} color="#ff6e40" />} {props.email}
       </Text>
       <Card.Divider/>
         <Button
