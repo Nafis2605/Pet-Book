@@ -1,84 +1,101 @@
-import React from "react";
-import { View, Text, StyleSheet, FlatList, TouchableOpacity } from "react-native";
-import VetCard from "./../../components/VetCard";
-import AppHeader from "../../components/AppHeader" 
-import VetDetailsCard from "../../components/VetDetailsCard"
-const VetListScreen = (props) => {
-    const vets = [
-        {
-          id: "V1",
-          name:"Dr Mehedy Hasan",
-          specialization:"Cat Specialist",
-          address: "Wari, Dhaka"
-        },
-        {
-            id: "V2",
-            name:"Dr Mohammad Mithun",
-            specialization:"Dog Specialist",
-            address: "Mirpur, Dhaka"
-        },
-        {
-          id: "V3",
-          name:"Dr Nazmul Hasan Shanto",
-          specialization:"Cow Specialist",
-          address: "Amtoli, Rajshahi"
-        },
-        {
-            id: "V4",
-            name:"Dr Mominul Haque",
-            specialization:"Fish Specialist",
-            address: "Himchori, Cox's Bazar"
-        },
-        {
-            id: "V5",
-            name:"Dr Tamim Iqbal",
-            specialization:"Goat Specialist",
-            address: "Bahadarhat, Chittagong"
-        },
-      ];
+import React, { Component } from "react";
+import { View, Text, FlatList, Button,SafeAreaView, TouchableOpacity } from "react-native";
+import { ListItem, SearchBar } from "react-native-elements";
+import VetCard from "../../components/VetCard";
+import VetList from "../../API/VetList.json";
+ 
+class VetListScreen extends Component {
+ 
+  constructor(props) {
+    super(props); 
+  
+    this.state = { 
+      loading: false,   
+      data: [],
+      temp: [],
+      error: null,
+      search: null
+    };
+  }
+  
+  componentDidMount() {
+    this.getData();
+  }
+ 
+   getData = async ()  => {
+   
+   const json = VetList;
+    this.setState({ loading: true });
+  
+     try {
+        this.setResult(json);
+     } catch (e) {
+     console.log(e);
+        this.setState({ error:"error" +e , loading: false });
+     }
+  };
+ 
+  setResult = (res) => {
+    this.setState({
+      data: [...this.state.data, ...res],
+      temp: [...this.state.temp, ...res],
+      error: res.error || null,
+      loading: false
+    });
+  }
+ 
+  renderHeader = () => {
+      return <SearchBar placeholder="Search Here..."
+          lightTheme round editable={true}
+          value={this.state.search}
+          onChangeText={this.updateSearch} />; 
+  }; 
+ 
+  updateSearch = search => {
+        this.setState({ search }, () => {
+            if ('' == search) {
+                this.setState({
+                    data: [...this.state.temp]
+                });
+                return;
+            }
+             
+            this.state.data = this.state.temp.filter(function(item){
+                return item.name.includes(search) || item.specialization.includes(search) || item.address.includes(search)  ;
+              }).map(function({id, name, specialization, address}){
+                return {id, name, specialization , address};
+            });
+        });
+  };
+ 
+  render() {
     return (
-        <View style={styles.viewStyle}>
-            <AppHeader/>
-            <FlatList
-                data={vets}
-                    renderItem={({ item }) => {
-                        return (
-                            <TouchableOpacity
-                            onPress={
-                                function (item) {
-                                    return(
-                                        props.navigation.navigate("Vet Details")
-                                    )
-                                }
-                            }
-                            >
-                            <VetCard
-                                name={item.name}
-                                specialization = {item.specialization}
-                                address = {item.address}
-                            />
-                            </TouchableOpacity>
-                        );
-                    }
-                }
-            />
-        </View>
-    );
-} ; 
+      this.state.error != null ?
+        <SafeAreaView style={{ flex: 1, flexDirection: 'column',justifyContent: 'center', alignItems: 'center' }}>
+          <Text>{this.state.error}</Text>
+          <Button onPress={
+            () => {
+              this.getData();
+            }
+          } title="Reload Page" />
+        </SafeAreaView> :
 
-const styles = StyleSheet.create(
-    {
-        textStyle:
-        {
-            fontSize: 20,
-            margin: 10,
-            color: "blue",
-        },
-        viewStyle:
-        {
-            backgroundColor: "#fff7e6",
-            flex:1
-        }
-    }
-);
+        <FlatList
+            ListHeaderComponent={this.renderHeader}
+            data={this.state.data}
+            keyExtractor={item => item.specialization}
+            renderItem={({ item }) => (
+
+              <VetCard
+              name={item.name}
+              specialization = {item.specialization}
+              address = {item.address}
+          />
+
+        )}
+      />
+    );
+  }
+}
+ 
 export default VetListScreen;
