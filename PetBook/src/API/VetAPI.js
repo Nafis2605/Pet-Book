@@ -1,6 +1,7 @@
 import VetList from "./VetList";
+import _ from "lodash"; 
 
-const contains = ({ name, specialization, address }, query) => {
+export const contains = ({ name, specialization, address }, query) => {
     if (name.includes(query)|| specialization.includes(query) || address.includes(query)) {
       return true;
     }
