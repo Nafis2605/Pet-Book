@@ -9,7 +9,7 @@ const ProfileCard = (props) => {
     
     <Card containerStyle={styles.cardStyle}>
       <View style={{ alignItems: "center"}}>
-
+      <Text style={{fontSize:24}}>User Profile</Text>
         <Avatar
           containerStyle={{ backgroundColor: "#ff6e40" }}
           rounded
@@ -25,38 +25,13 @@ const ProfileCard = (props) => {
           {props.name}
         </Text>
       </View>
-      <Text h4style={{padding:20}} h4>
-      {<Entypo name="location" size={24} color="#ff6e40" />}  Put the address here
-      </Text>
       <Text h4style={{padding: 20}} h4>
-      {<Entypo name="mobile" size={24} color="black" color="#ff6e40" />}  {props.contactNo}
+      {<Entypo name="mobile" size={24} color="black" color="#ff6e40" />} {props.contactNo}
       </Text>
       <Text h4style={{padding: 20}} h4>
       {<Entypo name="mail-with-circle" size={24} color="#ff6e40" />} {props.email}
       </Text>
-      <Card.Divider/>
-        <Button
-          type="outline"
-          titleStyle={{color: "#ff6e40"}}
-          buttonStyle={styles.clearButtonStyle}
-          title=" Upload Picture"
-          icon={<FontAwesome5 name="image" size={24} color="#ff6e40" />}
-          onPress={
-            function () {
-                console.log("Upload Picture Button is clicked")
-            }
-          }
-        />
-        <Card.Divider/>
-        <Button 
-        type="solid" 
-        title=" Edit Profile"
-        titleStyle={{color: "#FFF5DE"}}
-        buttonStyle={styles.solidButtonStyle}
-        icon={<AntDesign name="profile" size={24} color="#FFF5DE" />} 
-        onPress={function () {
-          console.log("Edit Profile Button is clicked!")
-        }}/>
+      
     </Card>
   );
 };
